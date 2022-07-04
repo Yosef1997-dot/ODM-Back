@@ -1,6 +1,6 @@
 For activating the router, follow the next steps.
 
-If you don't have virtual environment on you computer,
+If there is no virtual environment on the computer,
 run the next command:
 
 ======pip3 install virtualenv
