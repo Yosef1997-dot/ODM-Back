@@ -28,7 +28,7 @@ Now run
 
 ======python3 router.py
 
-and you all set
+and you're all set
 
 The next step is to go to (https://github.com/Yosef1997-dot/ODM)
 and follow the README file of the front.
