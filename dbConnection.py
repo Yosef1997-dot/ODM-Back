@@ -11,4 +11,3 @@ client = pymongo.MongoClient( CONNECTION_STR, serverSelectionTimeoutMS=5000, tls
 db = client.myFirstDatabase
 usersCollection = db.users
 
-

@@ -1,34 +1,14 @@
-For activating the router, follow the next steps.
+For running the DB follow these steps:
 
-If there is no virtual environment on the computer,
-run the next command:
+1. Run inside the Back folder the next command (with the dot):
+docker build -t home_assignment_back . 
 
-======pip3 install virtualenv
+2. Run the next command:
+docker run --name home_assignment_back_c -p 5000:5000 --rm home_assignment_back
 
-For creating a vitual env in the local directory(inside the odm_backend file),
-run the next command:
+3. Now there is a connection to DB and it's running on port 5000
 
-======virtualenv mypython
+4. To stop and remove the container just run this command:
+docker stop home_assignment_back_c
 
-For activating the vitual env,
-run the next command:
-
-======source env_name/bin/activate
-
-And for Windows:
-
-======env_name\Scripts\activate
-
-For downloading all the packages needed,
-run the next command:
-
-======pip3 install -r requirements.txt
-
-Now run
-
-======python3 router.py
-
-and you're all set
-
-The next step is to go to (https://github.com/Yosef1997-dot/ODM)
-and follow the README file of the front.
+5. Open README file in the front folder and follow its steps
