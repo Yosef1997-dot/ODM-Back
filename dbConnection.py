@@ -9,5 +9,5 @@ CONNECTION_STR = os.environ.get("CONNECTION_STR")
 
 client = pymongo.MongoClient( CONNECTION_STR, serverSelectionTimeoutMS=5000, tlsCAFile=certifi.where())
 db = client.myFirstDatabase
-usersCollection = db.users
+employeesCollection = db.users
 

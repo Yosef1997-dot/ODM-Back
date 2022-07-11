@@ -1,37 +1,37 @@
-from dbConnection import usersCollection
+from dbConnection import employeesCollection
 
 
 def read():
-    users = usersCollection.find()
-    output = [{'id':str(data['_id']), 'name':data['name']}
-              for data in users]
+    employees = employeesCollection.find()
+    output = [{'id':str(employee['_id']), 'name':employee['name']}
+              for employee in employees]
     return output
 
 
-def create(new_user):
-    response = usersCollection.insert_one(new_user)
+def create(new_employee):
+    response = employeesCollection.insert_one(new_employee)
     output = {'Status': 'Successfully Inserted',
                   'Document_ID': str(response.inserted_id)}
     return output
 
 
-def update(filt, updated_user):
-    response = usersCollection.update_one(filt, {"$set": updated_user})
+def update(filt, updated_employee):
+    response = employeesCollection.update_one(filt, {"$set": updated_employee})
     output = {'Status': 'Successfully Updated' if response.modified_count >
                   0 else "Nothing was updated."}
     return output
 
 
 def delete(filt):
-    response = usersCollection.delete_one(filt)
+    response = employeesCollection.delete_one(filt)
     output = {'Status': 'Successfully Deleted' if response.deleted_count >
                 0 else "Document not found."}
     return output
 
 
 def read_one(filt):
-    user = usersCollection.find_one(filt)
-    output = {item: user[item] for item in user if item != '_id' and item !='salary'}
+    employee = employeesCollection.find_one(filt)
+    output = {item: employee[item] for item in employee if item != '_id' and item !='salary'}
           
     return output
 
@@ -47,8 +47,8 @@ def compare_between_two_employees(filt):
 
     output = []
 
-    for user_id in filt:
-        output.append(usersCollection.find_one({'_id':user_id}))
+    for employee_id in filt:
+        output.append(employeesCollection.find_one({'_id':employee_id}))
 
     output = [{'id':str(item['_id']), 'name':item['name'],'salary':item['salary']}
               for item in output]
